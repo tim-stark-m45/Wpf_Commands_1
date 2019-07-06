@@ -33,6 +33,9 @@ namespace WpfAppCommands1
         private string text = "Hello!";
         public string Text { get => text; set => Set(ref text, value); }
 
+        private int counter = 0;
+        public int Counter { get => counter; set => Set(ref counter, value); }
+
         private RelayCommand testCommand;
         public RelayCommand TestCommand
         { get => testCommand ?? (testCommand = new RelayCommand(
@@ -42,6 +45,22 @@ namespace WpfAppCommands1
             }
             ));
         }
+
+        private RelayCommand counterCommand;
+        public RelayCommand CounterCommand
+        {
+            get => counterCommand ?? (counterCommand = new RelayCommand(
+              param =>
+              {
+                  if (param.ToString() == "+")
+                      Counter++;
+                  else
+                      Counter--;
+              },
+              param => Counter>-10 && Counter<10
+              ));
+        }
+
         public MainWindowViewModel()
         {
             ///TestCommand = new RelayCommand(param => Text = "Test");

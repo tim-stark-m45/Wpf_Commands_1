@@ -10,7 +10,7 @@
         <Label FontSize="30" Content="{Binding Text}"/>
         <Button FontSize="30" Command="{Binding TestCommand}" Content="Click"/>
         <TextBox FontSize="30" Text="{Binding Counter}"/>
-        <Button FontSize="30" Command="{Binding PlusCommand}" Content="+"/>
-        <Button FontSize="30" Command="{Binding MinusCommand}" Content="-"/>
+        <Button FontSize="30" Command="{Binding CounterCommand}" CommandParameter="+" Content="+"/>
+        <Button FontSize="30" Command="{Binding CounterCommand}" CommandParameter="-" Content="-"/>
     </StackPanel>
 </Window>
